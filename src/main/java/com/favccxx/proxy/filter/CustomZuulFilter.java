@@ -43,7 +43,7 @@ public class CustomZuulFilter extends ZuulFilter {
 				logger.info("Auth failed, token is empty.");
 				return null;
 			} else {
-				String digetToken = DigestUtils.sha256Hex("kibana" + df.format(new Date()));
+				String digetToken = DigestUtils.sha256Hex("zuul" + df.format(new Date()));
 				if (digetToken.equals(authToken)) {
 					context.setSendZuulResponse(true);
 					context.setResponseStatusCode(200);
